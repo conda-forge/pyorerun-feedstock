@@ -1,5 +1,5 @@
 {% set name = "pyorerun" %}
-{% set version = "1.2.5" %}
+{% set version = "1.2.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pyomeca/pyorerun/archive/refs/tags/{{ version }}.tar.gz
-  sha256: ff24d2af345aa1c64699d6b2633e3ff02a3ca2a9e2e641660ecddd279806ca77
+  sha256: 8b45d975e27ed7b1bf8218c8dea35e0423a5f91a755a249c28fcab15f86f8b2c
 
 build:
   noarch: python
