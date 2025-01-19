@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "pyorerun" %}
 {% set version = "1.3.3" %}
 
@@ -12,16 +13,16 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
     - hatchling
     - tk
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - biorbd >=1.11.1
     - ezc3d
     - rerun-sdk >=0.20.1
@@ -37,6 +38,7 @@ test:
     - pyorerun
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - python -c "import pyorerun"
 
