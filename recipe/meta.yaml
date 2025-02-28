@@ -24,7 +24,7 @@ requirements:
     - python >=3.10
     - biorbd >=1.11.1
     - ezc3d
-    - rerun-sdk >=0.20.1
+    - rerun-sdk=0.21.0
     - numpy
     - trimesh
     - pyomeca
