@@ -13,10 +13,6 @@ build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  channels:
-    - conda-forge # It's good practice to include conda-forge for general packages
-    - opensim-org
-    - defaults
 
 requirements:
   host:
