@@ -31,6 +31,7 @@ requirements:
     - tk
     - imageio
     - imageio-ffmpeg
+    - opensim-org::opensim
 
 test:
   imports:
