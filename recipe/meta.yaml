@@ -14,8 +14,8 @@ build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
   channels:
-    - opensim-org
     - conda-forge # It's good practice to include conda-forge for general packages
+    - opensim-org
     - defaults
 
 requirements:
@@ -35,7 +35,7 @@ requirements:
     - tk
     - imageio
     - imageio-ffmpeg
-    - opensim
+    - opensim-core
 
 test:
   imports:
