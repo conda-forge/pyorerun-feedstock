@@ -1,5 +1,6 @@
 {% set name = "pyorerun" %}
 {% set version = "1.5.2" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -16,12 +17,12 @@ build:
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
     - hatchling
     - tk
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - biorbd >=1.11.1
     - ezc3d
     - rerun-sdk =0.27.2
