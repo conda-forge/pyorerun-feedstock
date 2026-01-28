@@ -1,5 +1,6 @@
 {% set name = "pyorerun" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.3" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,35 +8,37 @@ package:
 
 source:
   url: https://github.com/pyomeca/pyorerun/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 810b41e71251c525b252e87544c2f85f4c430ab4603f6492aef46c1e90a6fba4
+  sha256: ba685f3395230f1488aca0a3d01f6fdd692c74ee9b161c3b9d2d500f03cb212f
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
     - hatchling
     - tk
   run:
-    - python >=3.10
-    - biorbd >=1.11.1
+    - python >={{ python_min }}
     - ezc3d
-    - rerun-sdk =0.22.1
+    - trc-data-reader
+    - biorbd >=1.10.5
     - numpy
+    - rerun-sdk =0.27.2
     - trimesh
-    - pyomeca
     - tk
     - imageio
     - imageio-ffmpeg
+    - matplotlib-base
 
 test:
   imports:
     - pyorerun
   requires:
+    - python {{ python_min }}
     - pip
   commands:
     - python -c "import pyorerun"
