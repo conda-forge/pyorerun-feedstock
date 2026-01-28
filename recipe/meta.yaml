@@ -31,3 +31,25 @@ requirements:
     - imageio
     - imageio-ffmpeg
     - matplotlib
+
+test:
+  imports:
+    - pyorerun
+  requires:
+    - pip
+  commands:
+    - python -c "import pyorerun"
+
+about:
+  home: https://github.com/pyomeca/pyorerun
+  summary: 'Rerun c3d files and biorbd models from python'
+  description: |
+    Rerun c3d files and biorbd models from python.
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.md
+  dev_url: https://github.com/pyomeca/pyorerun
+
+extra:
+  recipe-maintainers:
+    - Ipuch
