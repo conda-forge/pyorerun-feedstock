@@ -1,6 +1,6 @@
 {% set name = "pyorerun" %}
-{% set version = "1.5.2" %}
-{% set python_min = "3.10" %}
+{% set version = "1.5.3" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,10 @@ package:
 
 source:
   url: https://github.com/pyomeca/pyorerun/archive/refs/tags/{{ version }}.tar.gz
-  sha256: a73856dc080c717e1c8cbfa908e0602f4d26d031e6489ee986da69ebb7a4e964
+  sha256: ba685f3395230f1488aca0a3d01f6fdd692c74ee9b161c3b9d2d500f03cb212f
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
 
 requirements:
   host:
@@ -23,34 +21,13 @@ requirements:
     - tk
   run:
     - python >={{ python_min }}
-    - biorbd >=1.11.1
     - ezc3d
-    - rerun-sdk =0.27.2
+    - trc-data-reader
+    - biorbd >= 1.10.5
     - numpy
+    - rerun-sdk =0.27.2
     - trimesh
-    - pyomeca
     - tk
     - imageio
     - imageio-ffmpeg
-
-test:
-  imports:
-    - pyorerun
-  requires:
-    - pip
-  commands:
-    - python -c "import pyorerun"
-
-about:
-  home: https://github.com/pyomeca/pyorerun
-  summary: 'Rerun c3d files and biorbd models from python'
-  description: |
-    Rerun c3d files and biorbd models from python.
-  license: MIT
-  license_family: MIT
-  license_file: LICENSE.md
-  dev_url: https://github.com/pyomeca/pyorerun
-
-extra:
-  recipe-maintainers:
-    - Ipuch
+    - matplotlib
